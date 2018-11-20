@@ -1,0 +1,91 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 100px;
+    text-align: center;
+    color: #777;
+    font-size: 1.5em;
+    font-weight: 100;
+    /*background-color: grey;*/
+}
+.card {
+    margin: auto;
+    width: 750px;
+    /*height: 480px;*/
+    background-color: cadetblue;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.word {
+    background-color: azure;
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+    padding: 10px;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#hebrew {
+    color: #000;
+}
+    #hebrew.hiddenWord {
+        color: azure;
+    }
+    #hebrew.hiddenWord:hover {
+        color: #000;
+    }
+#russian {
+    color: #000;
+}
+    #russian.hiddenWord {
+        color: azure;
+    }
+    #russian.hiddenWord:hover {
+        color: #000;
+    }
+
+.info-container {
+    width: 200px;
+    /*background-color: lightgrey;*/
+    margin: auto;
+    padding-left: 60px;
+}
+    #howMuchWords, #wordNumber {
+        /*background-color: grey;*/
+        /*text-align: center;*/
+        font-size: 1.3em;
+        font-weight: 100;
+        color: #777;
+        margin: 10px 0;
+    }
+
+.button-container {
+    margin: 30px 0; 
+    text-align: center;
+}
+.button {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    background-color: rgb(72, 101, 102);
+    padding: 20px;
+    width: 180px;
+    line-height: 42px;
+    color: white;
+    font-size: 22px;
+    margin: 0 10px;
+    border-radius: 42px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgb(70, 118, 119);
+}
+.buttonRound {
+    width: 84px;
+}
