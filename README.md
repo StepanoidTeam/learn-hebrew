@@ -1,0 +1,2 @@
+# myDictionaryApp
+Learn foreign words
