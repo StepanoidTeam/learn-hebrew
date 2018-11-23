@@ -29,6 +29,8 @@ h1 {
     font-size: 45px;
     font-weight: bold;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #hebrew {
