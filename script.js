@@ -19,8 +19,19 @@ function updateNumber() {
       currentNumber = 0;
     }
     wordNumber.textContent = "current: " + currentNumber;
-  };
-  updateNumber();
+};
+updateNumber();
+
+/////// shrink current word ///////
+function shrinkFont() {
+    if(russianWord.textContent.length > 20) {
+        russianWord.style.fontSize = "35px";
+        console.log("shrink font size!");
+    } else if(russianWord.style.fontSize == "35px" && russianWord.textContent.length <= 20) {
+        russianWord.style.fontSize = "45px";
+        console.log("restore font size!");
+    }
+};
 
 
 
@@ -31,11 +42,12 @@ function updateNumber() {
 var russianWord = document.querySelector("#russian");
 var hebrewWord = document.querySelector("#hebrew");
 
-function updateWordandNumber() {
+function updateWordAndNumberAndFontSize() {
     russianWord.textContent = myDictionary[letterNumber].rus;
     hebrewWord.textContent = myDictionary[letterNumber].heb;
 
     updateNumber();
+    shrinkFont();
 }
 
 
@@ -53,7 +65,7 @@ function randomWord() {
         console.log("Refresh!!!");
         randomNumber();//done//
     }
-    updateWordandNumber();
+    updateWordAndNumberAndFontSize();
 };
 
 var randomButton = document.querySelector("#randomButton");
@@ -73,7 +85,7 @@ function nextWord() {
     if (letterNumber >= myDictionary.length) {
         letterNumber = 0;
     }
-    updateWordandNumber();
+    updateWordAndNumberAndFontSize();
 };
 
 var nextButton = document.querySelector("#nextButton");
@@ -90,7 +102,7 @@ function prevWord() {
     if (letterNumber < 0 || letterNumber === undefined) {
         letterNumber = myDictionary.length - 1;
     }
-    updateWordandNumber();
+    updateWordAndNumberAndFontSize();
 };
 
 var prevButton = document.querySelector("#prevButton");
