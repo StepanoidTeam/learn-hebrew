@@ -1,4 +1,4 @@
-# My Dictionary App - Learn foreign words.
+#  🇮🇱 Learn foreign words
 
 - Hover cursor over the blank field to unhide foreign word;
 
