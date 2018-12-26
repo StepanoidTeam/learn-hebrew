@@ -1,4 +1,4 @@
-#  🇮🇱 Learn foreign words
+#  🇮🇱 Learn hebrew
 
 - Hover cursor over the blank field to unhide foreign word;
 
