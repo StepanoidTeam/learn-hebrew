@@ -21,3 +21,6 @@ class Component {
 }
 
 export default Component;
+
+//default styling for layout-only components
+appendStyles("./components/styles.css");
