@@ -1,4 +1,4 @@
-import List from "../../components/list/index.js";
+import List from "./components/list/index.js";
 
 import dictionaries from "./dictionaries/index.js";
 
