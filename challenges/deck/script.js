@@ -97,7 +97,18 @@ function nextWord() {
 
 var nextButton = document.querySelector("#nextButton");
 nextButton.addEventListener("click", nextWord);
+document.body.addEventListener("keydown", onKeyDown);
 
+function onKeyDown({ key }) {
+  switch (key) {
+    case "ArrowRight":
+      nextWord();
+      break;
+    case "ArrowLeft":
+      prevWord();
+      break;
+  }
+}
 /////////////////////////////
 //      Previous button    //
 /////////////////////////////
