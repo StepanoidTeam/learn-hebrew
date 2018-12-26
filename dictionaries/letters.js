@@ -39,7 +39,6 @@ const LETTERS = [
     trxn: "о",
     rus: "вав"
   },
-  ,
   {
     heb: "וּ",
     trxn: "у",
