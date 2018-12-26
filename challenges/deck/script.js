@@ -1,4 +1,4 @@
-import dictionaries from "/dictionaries/index.js";
+import dictionaries from "../../dictionaries/index.js";
 
 let dictionaryId = +new URLSearchParams(document.location.search).get(
   "dictionaryId"
