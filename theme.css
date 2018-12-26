@@ -1,0 +1,15 @@
+/* THEME */
+
+:root {
+  --primary-color: #6002ee;
+  --hover-color: #6002ee12;
+  --active-color: #6002ee24;
+}
+
+/* 
+
+get colors here:
+
+https://material.io/design/color/the-color-system.html#tools-for-picking-colors 
+
+*/

@@ -1,8 +1,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  padding: 0;
 }
 
 .list-item {
@@ -13,10 +11,10 @@
 }
 
 .list-item:hover {
-  background-color: #00000012;
+  background-color: var(--hover-color, #00000012);
 }
 .list-item:active {
-  background-color: #00000024;
+  background-color: var(--active-color, #00000024);
 }
 
 .list-item__icon {
