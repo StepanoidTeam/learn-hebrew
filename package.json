@@ -1,0 +1,21 @@
+{
+  "name": "learn-hebrew",
+  "version": "0.2.1",
+  "description": "hebrew learning app",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/StepanoidTeam/learn-hebrew.git"
+  },
+  "keywords": [
+    "learn",
+    "hebrew"
+  ],
+  "authors": "Stepan Ulanchenko, Volodymyr Myshko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StepanoidTeam/learn-hebrew/issues"
+  },
+  "homepage": "https://github.com/StepanoidTeam/learn-hebrew#readme"
+}
