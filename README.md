@@ -6,5 +6,5 @@
 
 ## DEMO
 
-https://stepanoidteam.github.io/myDictionaryApp/
+https://stepanoidteam.github.io/learn-hebrew/
 
