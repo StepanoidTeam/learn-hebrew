@@ -14,6 +14,8 @@ howMuchWords.textContent = "total: " + DICTIONARY.length;
 var wordNum;
 console.log(wordNum);
 
+document.querySelector("#dictName").textContent = DICTIONARY.name;
+
 var wordNumber = document.querySelector("#wordNumber");
 
 function updateNumber() {
