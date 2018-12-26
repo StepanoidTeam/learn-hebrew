@@ -1,4 +1,10 @@
-import DICTIONARY from "/dictionaries/stepan.words.js";
+import dictionaries from "/dictionaries/index.js";
+
+let dictionaryId = +new URLSearchParams(document.location.search).get(
+  "dictionaryId"
+);
+
+let DICTIONARY = dictionaries[dictionaryId];
 
 /////// How much words? ///////
 var howMuchWords = document.querySelector("#howMuchWords");
@@ -42,8 +48,10 @@ var russianWord = document.querySelector("#russian");
 var hebrewWord = document.querySelector("#hebrew");
 
 function updateWordAndNumberAndFontSize() {
-  russianWord.textContent = DICTIONARY[wordNum].emo + DICTIONARY[wordNum].rus;
-  hebrewWord.textContent = DICTIONARY[wordNum].heb + DICTIONARY[wordNum].trxn;
+  let { heb, rus, trxn = "", emo = "" } = DICTIONARY[wordNum];
+
+  russianWord.textContent = `${emo}${rus}`;
+  hebrewWord.textContent = `${heb}${trxn && ` [${trxn}]`}`;
 
   updateNumber();
   shrinkFont();
