@@ -1,0 +1,45 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 0;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.list-item:hover {
+  background-color: #00000012;
+}
+.list-item:active {
+  background-color: #00000024;
+}
+
+.list-item__icon {
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+}
+
+.list-item__text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 16px;
+}
+
+.list-item__text-primary {
+  font-size: 16px;
+  line-height: 1em;
+  color: #000000de;
+}
+
+.list-item__text-secondary {
+  font-size: 14px;
+  line-height: 1em;
+  color: #00000099;
+}
