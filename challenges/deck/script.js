@@ -6,25 +6,22 @@ let dictionaryId = +new URLSearchParams(document.location.search).get(
 );
 let DICTIONARY = dictionaries[dictionaryId];
 
-/////// How much words? ///////
-var howMuchWords = document.querySelector("#howMuchWords");
-howMuchWords.textContent = `total: ${DICTIONARY.length}`;
-
 /////// Number of current word ///////
-var wordNum;
 
-document.querySelector("#dictName").textContent = DICTIONARY.name;
+document.querySelector(".dictionary-name").textContent = DICTIONARY.name;
 
-var wordNumber = document.querySelector("#wordNumber");
+var cardNum = 0;
+const gameInfoEl = document.querySelector(".game-info");
 
 function updateNumber() {
-  var currentNumber = wordNum;
-  if (wordNum !== undefined) {
-    currentNumber = wordNum + 1;
-  } else if (wordNum === undefined) {
+  var currentNumber = cardNum;
+  if (cardNum !== undefined) {
+    currentNumber = cardNum + 1;
+  } else if (cardNum === undefined) {
     currentNumber = 0;
   }
-  wordNumber.textContent = "current: " + currentNumber;
+
+  gameInfoEl.textContent = `${cardNum} of ${DICTIONARY.length}`;
 }
 updateNumber();
 
@@ -36,7 +33,7 @@ var hebrewWord = document.querySelector("#heb");
 var emoji = document.querySelector("#emo");
 
 function updateWordAndNumberAndFontSize() {
-  let { heb, rus, trxn = "", emo = "" } = DICTIONARY[wordNum];
+  let { heb, rus, trxn = "", emo = "" } = DICTIONARY[cardNum];
 
   russianWord.textContent = rus;
   emoji.textContent = emo;
@@ -49,13 +46,13 @@ function updateWordAndNumberAndFontSize() {
 //  Random word generator  //
 /////////////////////////////
 function randomNumber() {
-  wordNum = Math.floor(Math.random() * DICTIONARY.length);
+  cardNum = Math.floor(Math.random() * DICTIONARY.length);
 } //done//
 
 function randomWord() {
-  var numberPrev = wordNum;
+  var numberPrev = cardNum;
   randomNumber(); //done//
-  while (numberPrev == wordNum) {
+  while (numberPrev == cardNum) {
     console.log("Refresh!!!");
     randomNumber(); //done//
   }
@@ -64,92 +61,56 @@ function randomWord() {
 
 document.querySelector(".btn-random").addEventListener("click", randomWord);
 
-/////////////////////////////
-//        Next button      //
-/////////////////////////////
-function nextWord() {
-  if (wordNum !== undefined) {
-    wordNum++;
-  }
-  if (wordNum === undefined) {
-    wordNum = 0;
-  }
-  if (wordNum >= DICTIONARY.length) {
-    wordNum = 0;
-  }
-  updateWordAndNumberAndFontSize();
-}
-
-document.querySelector(".btn-next").addEventListener("click", nextWord);
+document.querySelector(".btn-next").addEventListener("click", nextCard);
 
 document.body.addEventListener("keydown", onKeyDown);
 
 function onKeyDown({ key }) {
   switch (key) {
     case "ArrowRight":
-      nextWord();
+      nextCard();
       break;
     case "ArrowLeft":
-      prevWord();
+      prevCard();
       break;
   }
+}
+
+/////////////////////////////
+//        Next button      //
+/////////////////////////////
+function nextCard() {
+  if (cardNum !== undefined) {
+    cardNum++;
+  }
+  if (cardNum === undefined) {
+    cardNum = 0;
+  }
+  if (cardNum >= DICTIONARY.length) {
+    cardNum = 0;
+  }
+  updateWordAndNumberAndFontSize();
 }
 /////////////////////////////
 //      Previous button    //
 /////////////////////////////
-function prevWord() {
-  if (wordNum !== undefined) {
-    wordNum--;
+function prevCard() {
+  if (cardNum !== undefined) {
+    cardNum--;
   }
-  if (wordNum < 0 || wordNum === undefined) {
-    wordNum = DICTIONARY.length - 1;
+  if (cardNum < 0 || cardNum === undefined) {
+    cardNum = DICTIONARY.length - 1;
   }
   updateWordAndNumberAndFontSize();
 }
 
-document.querySelector(".btn-prev").addEventListener("click", prevWord);
+document.querySelector(".btn-prev").addEventListener("click", prevCard);
 
 //////////////////////
-//      switch      //
+//     FLIP CARD    //
 //////////////////////
 document
   .querySelector(".word-card")
   .addEventListener("click", ({ currentTarget: card }) => {
     card.classList.toggle("flip");
   });
-
-/////////////////////////////
-//        Play button      //
-/////////////////////////////
-/*var forward = true;
-var backward = false;
-
-var playWord = function() {
-    if (x !== undefined && forward) {
-        x++;
-    }
-    if (x !== undefined && backward) {
-        x--;
-    }
-    if (x === undefined) {
-        x = 0;
-    }
-    if (x >= myDictionary.length) {*/
-/*window.clearInterval(play);*/
-/*        console.log("END!");
-        forward = false;
-        backward = true;
-    }
-    if (x == 0) {
-        forward = true;
-        backward = false;
-    }
-    updateWordandNumber();
-};
-var play;
-var playing = function() {
-    play = window.setInterval(playWord, 3000);
-}
-
-var playButton = document.querySelector("#playButton");
-playButton.addEventListener("click", playing);*/
