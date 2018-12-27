@@ -10,6 +10,41 @@ h1 {
   /*background-color: grey;*/
 }
 
+.word-card {
+  background-color: #fff;
+  transition: all 100ms ease-in-out;
+}
+
+.word-card.flip {
+  background-color: #f6f6f6;
+}
+
+.word-card #rus {
+  opacity: 1;
+}
+
+.word-card #heb {
+  opacity: 0.05;
+}
+
+.word-card.flip #rus {
+  opacity: 0.05;
+}
+
+.word-card.flip #heb {
+  opacity: 1;
+}
+
+.word-card .emo-block {
+  font-size: 5em;
+  height: 100px;
+  padding: 0 16px;
+}
+
+.word-card .emo-block:empty:after {
+  content: "❔";
+}
+
 .word {
   --font-size: 3em;
   --line-height: 1em;
