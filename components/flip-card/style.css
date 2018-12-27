@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+
+  --cell-size: 200px;
+  --cell-margin: 5px;
+  --size: calc(var(--cell-size) - var(--cell-margin) * 2);
+
+  width: var(--size);
+  height: var(--size);
+
+  margin: var(--cell-margin);
+  perspective: 450px;
+
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.card > .face,
+.card > .back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: all 500ms ease;
+  border-radius: 0.05rem;
+  box-shadow: 0 0 10px -2px black;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+.card > .face {
+  background-color: #eeeeee;
+}
+.card > .back {
+  transform: rotateY(-180deg);
+  background-color: black;
+}
+
+.card.is-open > .face {
+  transform: rotateY(180deg);
+  background-color: black;
+}
+.card.is-open > .back {
+  transform: rotateY(0deg);
+  background-color: #fff;
+}
