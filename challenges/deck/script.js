@@ -1,18 +1,17 @@
 import dictionaries from "../../dictionaries/index.js";
 
+// load dictionary based on url param
 let dictionaryId = +new URLSearchParams(document.location.search).get(
   "dictionaryId"
 );
-
 let DICTIONARY = dictionaries[dictionaryId];
 
 /////// How much words? ///////
 var howMuchWords = document.querySelector("#howMuchWords");
-howMuchWords.textContent = "total: " + DICTIONARY.length;
+howMuchWords.textContent = `total: ${DICTIONARY.length}`;
 
 /////// Number of current word ///////
 var wordNum;
-console.log(wordNum);
 
 document.querySelector("#dictName").textContent = DICTIONARY.name;
 
@@ -29,34 +28,21 @@ function updateNumber() {
 }
 updateNumber();
 
-/////// shrink current word ///////
-function shrinkFont() {
-  if (russianWord.textContent.length > 20) {
-    russianWord.style.fontSize = "35px";
-    console.log("shrink font size!");
-  } else if (
-    russianWord.style.fontSize == "35px" &&
-    russianWord.textContent.length <= 20
-  ) {
-    russianWord.style.fontSize = "45px";
-    console.log("restore font size!");
-  }
-}
-
 /////////////////////////////////////////////////////////
 //////////////////       buttons       //////////////////
 /////////////////////////////////////////////////////////
-var russianWord = document.querySelector("#russian");
-var hebrewWord = document.querySelector("#hebrew");
+var russianWord = document.querySelector("#rus");
+var hebrewWord = document.querySelector("#heb");
+var emoji = document.querySelector("#emo");
 
 function updateWordAndNumberAndFontSize() {
   let { heb, rus, trxn = "", emo = "" } = DICTIONARY[wordNum];
 
-  russianWord.textContent = `${emo}${rus}`;
+  russianWord.textContent = rus;
+  emoji.textContent = emo;
   hebrewWord.textContent = `${heb}${trxn && ` [${trxn}]`}`;
 
   updateNumber();
-  shrinkFont();
 }
 
 /////////////////////////////
@@ -76,8 +62,7 @@ function randomWord() {
   updateWordAndNumberAndFontSize();
 }
 
-var randomButton = document.querySelector("#randomButton");
-randomButton.addEventListener("click", randomWord);
+document.querySelector(".btn-random").addEventListener("click", randomWord);
 
 /////////////////////////////
 //        Next button      //
@@ -95,8 +80,8 @@ function nextWord() {
   updateWordAndNumberAndFontSize();
 }
 
-var nextButton = document.querySelector("#nextButton");
-nextButton.addEventListener("click", nextWord);
+document.querySelector(".btn-next").addEventListener("click", nextWord);
+
 document.body.addEventListener("keydown", onKeyDown);
 
 function onKeyDown({ key }) {
@@ -122,27 +107,16 @@ function prevWord() {
   updateWordAndNumberAndFontSize();
 }
 
-var prevButton = document.querySelector("#prevButton");
-prevButton.addEventListener("click", prevWord);
+document.querySelector(".btn-prev").addEventListener("click", prevWord);
 
 //////////////////////
 //      switch      //
 //////////////////////
-var rusSwitch = document.querySelector("#russian");
-var hebSwitch = document.querySelector("#hebrew");
-
-function rusSelect() {
-  hebSwitch.classList.add("hiddenWord");
-  rusSwitch.classList.remove("hiddenWord"); //done//
-}
-
-function hebSelect() {
-  rusSwitch.classList.add("hiddenWord");
-  hebSwitch.classList.remove("hiddenWord"); //done//
-}
-
-rusSwitch.addEventListener("click", rusSelect);
-hebSwitch.addEventListener("click", hebSelect);
+document
+  .querySelector(".word-card")
+  .addEventListener("click", ({ currentTarget: card }) => {
+    card.classList.toggle("flip");
+  });
 
 /////////////////////////////
 //        Play button      //
