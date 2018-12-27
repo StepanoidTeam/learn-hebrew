@@ -14,16 +14,8 @@ var cardNum = 0;
 const gameInfoEl = document.querySelector(".game-info");
 
 function updateNumber() {
-  var currentNumber = cardNum;
-  if (cardNum !== undefined) {
-    currentNumber = cardNum + 1;
-  } else if (cardNum === undefined) {
-    currentNumber = 0;
-  }
-
-  gameInfoEl.textContent = `${cardNum} of ${DICTIONARY.length}`;
+  gameInfoEl.textContent = `${cardNum + 1} of ${DICTIONARY.length}`;
 }
-updateNumber();
 
 /////////////////////////////////////////////////////////
 //////////////////       buttons       //////////////////
@@ -42,6 +34,8 @@ function updateWordAndNumberAndFontSize() {
   updateNumber();
 }
 
+updateWordAndNumberAndFontSize();
+
 /////////////////////////////
 //  Random word generator  //
 /////////////////////////////
@@ -59,9 +53,38 @@ function randomWord() {
   updateWordAndNumberAndFontSize();
 }
 
-document.querySelector(".btn-random").addEventListener("click", randomWord);
+/////////////////////////////
+//    PREV   //    NEXT    //
+/////////////////////////////
+function nextCard() {
+  switchCard(1);
+}
 
+function prevCard() {
+  switchCard(-1);
+}
+
+function switchCard(delta = 1) {
+  let cardCount = DICTIONARY.length;
+  cardNum = (cardCount + ((cardNum + delta) % cardCount)) % cardCount;
+
+  console.log(cardNum);
+  updateWordAndNumberAndFontSize();
+}
+
+//////////////////////
+//     FLIP CARD    //
+//////////////////////
+document
+  .querySelector(".word-card")
+  .addEventListener("click", ({ currentTarget: card }) => {
+    card.classList.toggle("flip");
+  });
+
+// switch cards
+document.querySelector(".btn-random").addEventListener("click", randomWord);
 document.querySelector(".btn-next").addEventListener("click", nextCard);
+document.querySelector(".btn-prev").addEventListener("click", prevCard);
 
 document.body.addEventListener("keydown", onKeyDown);
 
@@ -75,42 +98,3 @@ function onKeyDown({ key }) {
       break;
   }
 }
-
-/////////////////////////////
-//        Next button      //
-/////////////////////////////
-function nextCard() {
-  if (cardNum !== undefined) {
-    cardNum++;
-  }
-  if (cardNum === undefined) {
-    cardNum = 0;
-  }
-  if (cardNum >= DICTIONARY.length) {
-    cardNum = 0;
-  }
-  updateWordAndNumberAndFontSize();
-}
-/////////////////////////////
-//      Previous button    //
-/////////////////////////////
-function prevCard() {
-  if (cardNum !== undefined) {
-    cardNum--;
-  }
-  if (cardNum < 0 || cardNum === undefined) {
-    cardNum = DICTIONARY.length - 1;
-  }
-  updateWordAndNumberAndFontSize();
-}
-
-document.querySelector(".btn-prev").addEventListener("click", prevCard);
-
-//////////////////////
-//     FLIP CARD    //
-//////////////////////
-document
-  .querySelector(".word-card")
-  .addEventListener("click", ({ currentTarget: card }) => {
-    card.classList.toggle("flip");
-  });
