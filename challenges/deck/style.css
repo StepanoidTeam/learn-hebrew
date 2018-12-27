@@ -1,6 +1,13 @@
 @import "../../style.css";
 @import "../../components/styles.css";
 
+.dictionary-name {
+  opacity: 0.7;
+}
+.game-info {
+  opacity: 0.4;
+}
+
 .word-card {
   background-color: #fff;
   transition: all 100ms ease-in-out;
