@@ -98,3 +98,8 @@ function onKeyDown({ key }) {
       break;
   }
 }
+
+document.querySelector(".btn-quit").addEventListener("click", () => {
+  // go to the main page
+  document.location.assign("../../");
+});
