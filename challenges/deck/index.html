@@ -4,22 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>🇮🇱Learn Hebrew</title>
+    <title>🇮🇱Learn Hebrew - Deck</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>🇮🇱Learn Hebrew - Deck Challenge</h1>
+    <h1>Deck</h1>
 
     <div class="card">
-      <div class="word" id="russian">russian</div>
-      <div class="word hiddenWord" id="hebrew">עברית</div>
+      <div class="card__title word" id="russian">russian</div>
+      <div class="card__title word hiddenWord" id="hebrew">עברית</div>
     </div>
 
     <div class="button-container">
-      <div class="button" id="prevButton">Previous</div>
-      <div class="button" id="randomButton">Random</div>
-      <!-- <div class="button buttonRound" id="playButton">></div> -->
-      <div class="button" id="nextButton">Next</div>
+      <button class="text" id="prevButton">
+        <i class="material-icons">skip_previous</i><span>Previous</span>
+      </button>
+      <button class="outlined" id="randomButton">
+        <i class="material-icons">shuffle</i><span>Random</span>
+      </button>
+
+      <button class="contained" id="nextButton">
+        <span>Next</span><i class="material-icons">keyboard_arrow_right</i>
+      </button>
     </div>
     <div class="info-container">
       <p id="dictName"></p>
