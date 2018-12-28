@@ -25,6 +25,6 @@ const WORDS = [
   }
 ];
 
-WORDS.name = "bob misc";
+WORDS.name = "WIX food 🍌";
 
 export default WORDS;
