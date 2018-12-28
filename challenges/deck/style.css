@@ -34,6 +34,16 @@
   opacity: 1;
 }
 
+.word-card #rus:empty:after {
+  opacity: 0.5;
+  content: "✖️";
+}
+
+.word-card #heb:empty:after {
+  opacity: 0.5;
+  content: "✖️";
+}
+
 .word-card .emo-block {
   font-size: 5em;
   height: 100px;
